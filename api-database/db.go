@@ -11,18 +11,17 @@ import (
 	"gorm.io/gorm"
 )
 
-func Hello() string {
-	message := "Hi, Welcome!"
-	return message
-}
-
-func Init() *gorm.DB {
+// Func to connect gorm into the Postgres DB.
+// Returns the gorm instance
+func InitDB() *gorm.DB {
+	//load .env config
 	c, err := config.LoadConfig()
 
 	if err != nil {
 		log.Fatalln(err)
 	}
 
+	// connect to DB
 	url := fmt.Sprintf("postgres://%s:%s@%s:%s/%s", c.DBUser, c.DBPass, c.DBHost, c.DBPort, c.DBName)
 	db, err := gorm.Open(postgres.Open(url), &gorm.Config{})
 

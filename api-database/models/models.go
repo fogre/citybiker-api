@@ -4,6 +4,7 @@ import (
 	"time"
 )
 
+// Trip DB model
 type Trip struct {
 	Id                 int       `json:"id" gorm:"primaryKey;autoIncrement;notNull"`
 	Distance           int32     `json:"distance" gorm:"notNull;check:time >= 10"`
@@ -15,6 +16,7 @@ type Trip struct {
 	DepartureStation   Station   `json:"departureStation" gorm:"foreignKey:DepartureStationId"`
 }
 
+// Station DB model
 type Station struct {
 	Id             int    `json:"id" gorm:"primaryKey;notNull"`
 	Name           string `json:"name" gorm:"notNull"`

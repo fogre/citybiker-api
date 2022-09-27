@@ -8,6 +8,6 @@ import (
 
 func main() {
 	message := database.Hello()
-	database.LoadConfig()
+	database.Init()
 	fmt.Println(message)
 }

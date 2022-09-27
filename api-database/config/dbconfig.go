@@ -1,13 +1,10 @@
-package database
+package config
 
 import (
-	"fmt"
-
 	"github.com/spf13/viper"
 )
 
 type Config struct {
-	Port   string `mapstructure:"PORT"`
 	DBHost string `mapstructure:"DB_HOST"`
 	DBUser string `mapstructure:"DB_USER"`
 	DBPass string `mapstructure:"DB_PASS"`
@@ -24,12 +21,9 @@ func LoadConfig() (c Config, err error) {
 	err = viper.ReadInConfig()
 
 	if err != nil {
-		fmt.Printf("err: %v\n", err)
 		return
 	}
 
 	err = viper.Unmarshal(&c)
-	fmt.Println(".env config loaded")
-
 	return
 }

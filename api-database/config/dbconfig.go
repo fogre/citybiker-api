@@ -4,7 +4,7 @@ import (
 	"github.com/spf13/viper"
 )
 
-// Struct for variables in .env file
+// Struct for DB variables in .env file
 type Config struct {
 	DBHost string `mapstructure:"DB_HOST"`
 	DBUser string `mapstructure:"DB_USER"`

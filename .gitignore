@@ -16,5 +16,6 @@
 
 # Dependency directories (remove the comment below to include it)
 # vendor/
-
+*.csv
+api-upload/testData/
 go.work.sum

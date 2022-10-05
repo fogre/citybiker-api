@@ -15,14 +15,14 @@ import (
 // Returns the gorm instance
 func InitDB() *gorm.DB {
 	//load .env config
-	c, err := config.LoadConfig()
+	conf, err := config.LoadConfig()
 
 	if err != nil {
 		log.Fatalln(err)
 	}
 
 	// connect to DB
-	url := fmt.Sprintf("postgres://%s:%s@%s:%s/%s", c.DBUser, c.DBPass, c.DBHost, c.DBPort, c.DBName)
+	url := fmt.Sprintf("postgres://%s:%s@%s:%s/%s", conf.DBUser, conf.DBPass, conf.DBHost, conf.DBPort, conf.DBName)
 	db, err := gorm.Open(postgres.Open(url), &gorm.Config{})
 
 	if err != nil {

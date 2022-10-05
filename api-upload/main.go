@@ -1,9 +1,10 @@
 package main
 
 import (
-	database "citybiker-go-api/db"
+	"citybiker-go-api/upload/csvparser"
 )
 
 func main() {
-	database.InitDB()
+	//db := database.InitDB()
+	csvparser.ParseStations("./testData/testStations.csv", "parsedStations.csv")
 }
